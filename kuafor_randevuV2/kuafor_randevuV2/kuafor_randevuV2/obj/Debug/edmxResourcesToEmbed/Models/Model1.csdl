@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kuafor_randevuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="fiyat_listesi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hizmet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="fiyat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="süre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="randevu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ad_soyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="randevu_tarih" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="hizmet_turu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="personel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="calisanlar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="calisan_adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="hizmet_turleri">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hizmet_tur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="uygun_randevu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tarih_ve_saat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="kuafor_randevuEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="fiyat_listesi" EntityType="Self.fiyat_listesi" />
+    <EntitySet Name="randevu" EntityType="Self.randevu" />
+    <EntitySet Name="calisanlar" EntityType="Self.calisanlar" />
+    <EntitySet Name="hizmet_turleri" EntityType="Self.hizmet_turleri" />
+    <EntitySet Name="uygun_randevu" EntityType="Self.uygun_randevu" />
+    <EntitySet Name="admin" EntityType="kuafor_randevuModel.admin" />
+  </EntityContainer>
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullanici_adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

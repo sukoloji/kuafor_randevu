@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="kuafor_randevuModelStoreContainer" CdmEntityContainer="kuafor_randevuEntities1">
+    <EntitySetMapping Name="fiyat_listesi">
+      <EntityTypeMapping TypeName="kuafor_randevuModel.fiyat_listesi">
+        <MappingFragment StoreEntitySet="fiyat_listesi">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="hizmet" ColumnName="hizmet" />
+          <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+          <ScalarProperty Name="süre" ColumnName="süre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="randevu">
+      <EntityTypeMapping TypeName="kuafor_randevuModel.randevu">
+        <MappingFragment StoreEntitySet="randevu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ad_soyad" ColumnName="ad_soyad" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="randevu_tarih" ColumnName="randevu_tarih" />
+          <ScalarProperty Name="hizmet_turu" ColumnName="hizmet_turu" />
+          <ScalarProperty Name="personel" ColumnName="personel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="calisanlar">
+      <EntityTypeMapping TypeName="kuafor_randevuModel.calisanlar">
+        <MappingFragment StoreEntitySet="calisanlar">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="calisan_adi" ColumnName="calisan_adi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hizmet_turleri">
+      <EntityTypeMapping TypeName="kuafor_randevuModel.hizmet_turleri">
+        <MappingFragment StoreEntitySet="hizmet_turleri">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="hizmet_tur" ColumnName="hizmet_tur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uygun_randevu">
+      <EntityTypeMapping TypeName="kuafor_randevuModel.uygun_randevu">
+        <MappingFragment StoreEntitySet="uygun_randevu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="tarih_ve_saat" ColumnName="tarih_ve_saat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="admin">
+      <EntityTypeMapping TypeName="kuafor_randevuModel.admin">
+        <MappingFragment StoreEntitySet="admin">
+          <ScalarProperty Name="sifre" ColumnName="sifre" />
+          <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

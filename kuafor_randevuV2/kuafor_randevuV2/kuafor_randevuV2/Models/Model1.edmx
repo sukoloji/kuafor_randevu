@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="kuafor_randevuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullanici_adi" Type="nvarchar(max)" />
+          <Property Name="sifre" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="calisanlar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="calisan_adi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="fiyat_listesi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hizmet" Type="nvarchar(max)" />
+          <Property Name="fiyat" Type="nvarchar(max)" />
+          <Property Name="süre" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'kuafor_randevu.dbo.hizmet_turleri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="hizmet_turleri">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hizmet_tur" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="randevu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ad_soyad" Type="nvarchar(max)" />
+          <Property Name="email" Type="nvarchar(max)" />
+          <Property Name="tel" Type="nvarchar(max)" />
+          <Property Name="randevu_tarih" Type="nvarchar(max)" />
+          <Property Name="hizmet_turu" Type="nvarchar(max)" />
+          <Property Name="personel" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'kuafor_randevu.dbo.uygun_randevu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="uygun_randevu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tarih_ve_saat" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="kuafor_randevuModelStoreContainer">
+          <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="calisanlar" EntityType="Self.calisanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fiyat_listesi" EntityType="Self.fiyat_listesi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="randevu" EntityType="Self.randevu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hizmet_turleri" EntityType="Self.hizmet_turleri" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [hizmet_turleri].[id] AS [id], 
+    [hizmet_turleri].[hizmet_tur] AS [hizmet_tur]
+    FROM [dbo].[hizmet_turleri] AS [hizmet_turleri]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="uygun_randevu" EntityType="Self.uygun_randevu" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [uygun_randevu].[id] AS [id], 
+    [uygun_randevu].[tarih_ve_saat] AS [tarih_ve_saat]
+    FROM [dbo].[uygun_randevu] AS [uygun_randevu]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kuafor_randevuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="fiyat_listesi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hizmet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fiyat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="süre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="randevu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad_soyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="randevu_tarih" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="hizmet_turu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="personel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="calisanlar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="calisan_adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="hizmet_turleri">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hizmet_tur" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="uygun_randevu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tarih_ve_saat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="kuafor_randevuEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="fiyat_listesi" EntityType="Self.fiyat_listesi" />
+          <EntitySet Name="randevu" EntityType="Self.randevu" />
+          <EntitySet Name="calisanlar" EntityType="Self.calisanlar" />
+          <EntitySet Name="hizmet_turleri" EntityType="Self.hizmet_turleri" />
+          <EntitySet Name="uygun_randevu" EntityType="Self.uygun_randevu" />
+          <EntitySet Name="admin" EntityType="kuafor_randevuModel.admin" />
+        </EntityContainer>
+        <EntityType Name="admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullanici_adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kuafor_randevuModelStoreContainer" CdmEntityContainer="kuafor_randevuEntities1">
+          <EntitySetMapping Name="fiyat_listesi">
+            <EntityTypeMapping TypeName="kuafor_randevuModel.fiyat_listesi">
+              <MappingFragment StoreEntitySet="fiyat_listesi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="hizmet" ColumnName="hizmet" />
+                <ScalarProperty Name="fiyat" ColumnName="fiyat" />
+                <ScalarProperty Name="süre" ColumnName="süre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="randevu">
+            <EntityTypeMapping TypeName="kuafor_randevuModel.randevu">
+              <MappingFragment StoreEntitySet="randevu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ad_soyad" ColumnName="ad_soyad" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="randevu_tarih" ColumnName="randevu_tarih" />
+                <ScalarProperty Name="hizmet_turu" ColumnName="hizmet_turu" />
+                <ScalarProperty Name="personel" ColumnName="personel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="calisanlar">
+            <EntityTypeMapping TypeName="kuafor_randevuModel.calisanlar">
+              <MappingFragment StoreEntitySet="calisanlar">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="calisan_adi" ColumnName="calisan_adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hizmet_turleri">
+            <EntityTypeMapping TypeName="kuafor_randevuModel.hizmet_turleri">
+              <MappingFragment StoreEntitySet="hizmet_turleri">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="hizmet_tur" ColumnName="hizmet_tur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uygun_randevu">
+            <EntityTypeMapping TypeName="kuafor_randevuModel.uygun_randevu">
+              <MappingFragment StoreEntitySet="uygun_randevu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tarih_ve_saat" ColumnName="tarih_ve_saat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="admin">
+            <EntityTypeMapping TypeName="kuafor_randevuModel.admin">
+              <MappingFragment StoreEntitySet="admin">
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="kullanici_adi" ColumnName="kullanici_adi" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

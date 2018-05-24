@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/datepickerCSS")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container body-content">
+        @Html.Partial("_AdminMenu")
+        @RenderBody()
+        <hr />
+        <footer></footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/datepickerJS")
+
+    <script>
+        $(document).ready(function () {
+            $("#TransDate").datepicker({
+                format: 'dd/mm/yyyy'
+            });
+        })
+    </script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/notify.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

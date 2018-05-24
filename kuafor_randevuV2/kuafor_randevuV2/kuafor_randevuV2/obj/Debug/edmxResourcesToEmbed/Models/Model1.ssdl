@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="kuafor_randevuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="admin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="kullanici_adi" Type="nvarchar(max)" />
+    <Property Name="sifre" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="calisanlar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="calisan_adi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="fiyat_listesi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hizmet" Type="nvarchar(max)" />
+    <Property Name="fiyat" Type="nvarchar(max)" />
+    <Property Name="süre" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'kuafor_randevu.dbo.hizmet_turleri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="hizmet_turleri">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hizmet_tur" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="randevu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad_soyad" Type="nvarchar(max)" />
+    <Property Name="email" Type="nvarchar(max)" />
+    <Property Name="tel" Type="nvarchar(max)" />
+    <Property Name="randevu_tarih" Type="nvarchar(max)" />
+    <Property Name="hizmet_turu" Type="nvarchar(max)" />
+    <Property Name="personel" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'kuafor_randevu.dbo.uygun_randevu' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="uygun_randevu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tarih_ve_saat" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="kuafor_randevuModelStoreContainer">
+    <EntitySet Name="admin" EntityType="Self.admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="calisanlar" EntityType="Self.calisanlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fiyat_listesi" EntityType="Self.fiyat_listesi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="randevu" EntityType="Self.randevu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="hizmet_turleri" EntityType="Self.hizmet_turleri" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [hizmet_turleri].[id] AS [id], 
+    [hizmet_turleri].[hizmet_tur] AS [hizmet_tur]
+    FROM [dbo].[hizmet_turleri] AS [hizmet_turleri]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="uygun_randevu" EntityType="Self.uygun_randevu" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [uygun_randevu].[id] AS [id], 
+    [uygun_randevu].[tarih_ve_saat] AS [tarih_ve_saat]
+    FROM [dbo].[uygun_randevu] AS [uygun_randevu]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

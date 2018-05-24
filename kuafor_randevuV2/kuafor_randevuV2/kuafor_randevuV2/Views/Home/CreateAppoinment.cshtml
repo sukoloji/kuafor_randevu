@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Randevu Sistemi | Giriş yap";
+}
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <div class="panel-group">
+        <div class="panel panel-success">
+            <div class="panel-heading text-center">
+                <h3>Randevu Al</h3>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    @Html.TextBox("FirstName", null, new { @class = "form-control", @placeholder = "Adınız" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                                    @Html.TextBox("Number", null, new { @class = "form-control", @placeholder = "Telefon Numaranız" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    @Html.TextBox("LastName", null, new { @class = "form-control", @placeholder = "Soyadınız" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    @Html.TextBox("Email", null, new { @class = "form-control", @placeholder = "Email" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Giriş</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}

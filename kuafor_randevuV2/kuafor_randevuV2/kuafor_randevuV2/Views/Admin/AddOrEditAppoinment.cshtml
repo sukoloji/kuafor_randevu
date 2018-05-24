@@ -1,0 +1,38 @@
+﻿@model kuafor_randevuV2.Models.randevu
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddOrEditAppoinment", "Admin", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.id)
+    <div class="form-group">
+        @Html.LabelFor(model => model.ad_soyad, new { @class = "control-label" })
+        @Html.EditorFor(model => model.ad_soyad, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.email, new { @class = "control-label" })
+        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.tel, new { @class = "control-label" })
+        @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.randevu_tarih, new { @class = "control-label" })
+        @Html.EditorFor(model => model.randevu_tarih, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.hizmet_turu, new { @class = "control-label" })
+        @Html.EditorFor(model => model.hizmet_turu, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.personel, new { @class = "control-label" })
+        @Html.EditorFor(model => model.personel, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Kaydet" class="btn btn-primary" />
+    </div>
+}
+
+

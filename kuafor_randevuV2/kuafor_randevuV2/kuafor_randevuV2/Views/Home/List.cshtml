@@ -1,0 +1,46 @@
+﻿@model IEnumerable<kuafor_randevuV2.Models.randevu>
+@{
+    ViewBag.Title = "Randevular";
+    int i = 1;
+}
+<div class="panel-group">
+    <div class="panel panel-success">
+        <div class="panel-heading text-center">
+            <h3>Randevular</h3>
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ad Soyad</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Tel</th>
+                                <th scope="col">Tarih</th>
+                                <th scope="col">Hizmet</th>
+                                <th scope="col">Personel</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@(i)</th>
+                                    <td>@item.ad_soyad.ToString()</td>
+                                    <td>@item.email.ToString()</td>
+                                    <td>@item.tel.ToString()</td>
+                                    <td>@item.randevu_tarih.ToString()</td>
+                                    <td>@item.hizmet_turu.ToString()</td>
+                                    <td>@(item.personel != null ? item.personel.ToString() : "")</td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        </form>
+    </div>
+</div>
